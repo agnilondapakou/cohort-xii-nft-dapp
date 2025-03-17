@@ -20,6 +20,8 @@ export const AppProvider = ({ children }) => {
     const [baseTokenURI, setBaseTokenURI] = useState("");
     const [tokenMetaData, setTokenMetaData] = useState(new Map());
     const [mintPrice, setMintPrice] = useState(null);
+    const [isUserAccount, setIsUserAccount] = useState(false);
+    const [tokenIdsArray, setTokenIdsArray] = useState([]);
 
     useEffect(() => {
         const contract = new Contract(
@@ -50,12 +52,13 @@ export const AppProvider = ({ children }) => {
 
     useEffect(() => {
         if (!maxSupply || !baseTokenURI) return;
-        // const tokenIds = Array.from({ length: Number(maxSupply) }, (_, i) => i);
 
         const tokenIds = [];
         for (let i = 0; i < maxSupply; i++) {
             tokenIds.push(i);
         }
+
+        setTokenIdsArray(tokenIds);
 
         const promises = tokenIds.map((id) => {
             return fetch(`${baseTokenURI}${id}.json`)
@@ -84,6 +87,9 @@ export const AppProvider = ({ children }) => {
                 baseTokenURI,
                 tokenMetaData,
                 mintPrice,
+                isUserAccount,
+                setIsUserAccount,
+                tokenIdsArray,
             }}
         >
             {children}

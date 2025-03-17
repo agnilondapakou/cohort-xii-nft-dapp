@@ -5,7 +5,6 @@ import { Contract } from "ethers";
 import NFT_ABI from "../ABI/nft.json";
 import { getEthersSigner } from "../config/wallet-connection/adapter";
 import { isSupportedNetwork } from "../utils";
-// import { config } from "../config/wallet-connection/wagmi";
 
 const useMintToken = () => {
     const { address } = useAccount();
@@ -31,8 +30,8 @@ const useMintToken = () => {
             if (receipt.status === 0) {
                 throw new Error("Transaction failed");
             }
-
-            alert("Token minted successfully");
+                
+            alert("Token minted successfully");            
         } catch (error) {
             console.error("error: ", error);
         }
