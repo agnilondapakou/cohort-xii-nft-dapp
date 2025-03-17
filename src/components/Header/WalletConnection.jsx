@@ -6,6 +6,7 @@ import { Flex, Popover } from "@radix-ui/themes";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { supportedNetworks } from "../../config/wallet-connection/wagmi";
 import { useAppContext } from "../../contexts/appContext";
+import "./index.css";
 
 const WalletConnection = () => {
     const account = useAccount();

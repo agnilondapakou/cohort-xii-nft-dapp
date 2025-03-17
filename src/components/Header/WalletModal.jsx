@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { Dialog, Flex } from "@radix-ui/themes";
 import React, { useState } from "react";
 import { useConnectors } from "wagmi";
+import "./index.css";
 
 const WalletModal = () => {
     const connectors = useConnectors();
@@ -30,7 +31,7 @@ const WalletModal = () => {
     return (
         <Dialog.Root>
             <Dialog.Trigger>
-                <button className="bg-secondary text-primary px-4 py-2 rounded-md cursor-pointer">
+                <button className="bg-secondary px-4 py-2 rounded-md cursor-pointer">
                     Connect Wallet
                 </button>
             </Dialog.Trigger>

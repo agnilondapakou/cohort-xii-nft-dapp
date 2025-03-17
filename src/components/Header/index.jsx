@@ -1,6 +1,8 @@
 import { Box, Flex, Text } from "@radix-ui/themes";
 import React from "react";
+import { Icon } from "@iconify/react/dist/iconify.js";
 import WalletConnection from "./WalletConnection";
+import './index.css'
 
 const Header = () => {
     return (
@@ -10,7 +12,8 @@ const Header = () => {
             width="100%"
             align="center"
             justify="between"
-            className="bg-primary p-4 items-center h-18"
+            className="p-4 items-center h-18"
+            id="header"
         >
             <Box>
                 <Text
@@ -19,7 +22,8 @@ const Header = () => {
                     role="img"
                     aria-label="logo"
                 >
-                    NFT dApp 🚀
+                    <Icon></Icon>
+                    NFT Minter
                 </Text>
             </Box>
             <WalletConnection />
